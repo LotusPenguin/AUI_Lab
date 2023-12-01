@@ -10,6 +10,7 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 
-public class PatchCharacterRequest {
+public class PatchDeviceRequest {
     private String name;
+    private String manufacturer;
 }

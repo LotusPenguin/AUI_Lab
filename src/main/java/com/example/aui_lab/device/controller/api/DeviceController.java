@@ -1,4 +1,8 @@
-package com.example.aui_lab.device.controller;
+package com.example.aui_lab.device.controller.api;
+
+import com.example.aui_lab.device.dto.GetDeviceResponse;
+import com.example.aui_lab.device.dto.GetDevicesResponse;
+import com.example.aui_lab.device.dto.PutDeviceRequest;
 
 import java.util.UUID;
 

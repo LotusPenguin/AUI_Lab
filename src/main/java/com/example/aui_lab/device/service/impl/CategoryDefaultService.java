@@ -1,2 +1,31 @@
-package com.example.aui_lab.device.service.impl;public class CategoryDefaultService {
+package com.example.aui_lab.device.service.impl;
+
+import com.example.aui_lab.device.entity.Category;
+import com.example.aui_lab.device.repository.api.CategoryRepository;
+import com.example.aui_lab.device.service.api.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+import java.util.UUID;
+
+@Service
+public class CategoryDefaultService implements CategoryService {
+
+    private final CategoryRepository repository;
+
+    @Autowired
+    public CategoryDefaultService(CategoryRepository repository){
+        this.repository = repository;
+    }
+
+    @Override
+    public Optional<Category> find(UUID id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public void create(Category category) {
+        repository.save(category);
+    }
 }
