@@ -6,7 +6,7 @@ import com.example.aui_lab.device.entity.Category;
 import java.util.List;
 import java.util.function.Function;
 
-public class ProfessionsToResponseFunction implements Function<List<Category>, GetCategoriesResponse> {
+public class CategoriesToResponseFunction implements Function<List<Category>, GetCategoriesResponse> {
 
     @Override
     public GetCategoriesResponse apply(List<Category> entities) {
