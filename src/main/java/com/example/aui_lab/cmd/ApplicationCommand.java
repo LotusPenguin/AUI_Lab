@@ -1,5 +1,6 @@
 package com.example.aui_lab.cmd;
 
+import com.example.aui_lab.device.controller.api.CategoryController;
 import com.example.aui_lab.device.controller.api.DeviceController;
 import com.example.aui_lab.device.dto.PutDeviceRequest;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -15,14 +16,17 @@ import java.util.UUID;
 public class ApplicationCommand implements CommandLineRunner {
 
     private final DeviceController deviceController;
+    private final CategoryController categoryController;
     private final ObjectWriter writer;
 
     @Autowired
     public ApplicationCommand(
             DeviceController deviceController,
+            CategoryController categoryController,
             ObjectWriter writer
     ) {
         this.deviceController = deviceController;
+        this.categoryController = categoryController;
         this.writer = writer;
     }
 
@@ -38,7 +42,7 @@ public class ApplicationCommand implements CommandLineRunner {
                     System.out.println("list_all_categories, list_all_devices, add_new_device, delete_existing_device, stop_application");
                 }
                 case "list_all_categories" -> {
-                    //System.out.println(writer.writeValueAsString(categoryController.getCategories()));
+                    System.out.println(writer.writeValueAsString(categoryController.getCategories()));
                 }
                 case "list_all_devices" -> {
                     System.out.println(writer.writeValueAsString(deviceController.getDevices()));
@@ -64,7 +68,7 @@ public class ApplicationCommand implements CommandLineRunner {
                     }
                 }
                 case "stop_application" -> {
-                    break main_loop;
+                    System.exit(0);
                 }
             }
         }
