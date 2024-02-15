@@ -1,0 +1,34 @@
+### Get all categories
+
+GET http://localhost:8083/api/categories
+
+### Get a single category
+
+GET http://localhost:8083/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d4
+
+### Create a new category
+
+PUT http://localhost:8083/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Monitors",
+  "packagingPrice": "29.99"
+}
+
+### Get the newly created category
+
+GET http://localhost:8083/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5
+
+### Get devices from the newly created, empty category
+
+GET http://localhost:8083/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5/devices
+
+### Delete a category (created with the request @line11)
+
+DELETE http://localhost:8083/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5
+
+### Get a single non-existing category
+
+GET http://localhost:8083/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5
