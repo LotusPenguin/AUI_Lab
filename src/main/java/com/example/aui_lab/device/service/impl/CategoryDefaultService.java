@@ -16,7 +16,7 @@ public class CategoryDefaultService implements CategoryService {
     private final CategoryRepository repository;
 
     @Autowired
-    public CategoryDefaultService(CategoryRepository repository){
+    public CategoryDefaultService(CategoryRepository repository) {
         this.repository = repository;
     }
 
@@ -26,12 +26,23 @@ public class CategoryDefaultService implements CategoryService {
     }
 
     @Override
+    public List<Category> findAll() {
+        return repository.findAll();
+    }
+
+    @Override
     public void create(Category category) {
         repository.save(category);
     }
 
     @Override
-    public List<Category> findAll() {
-        return repository.findAll();
+    public void edit(Category category) {
+        repository.save(category);
     }
+
+    @Override
+    public void delete(UUID uuid) {
+        repository.deleteById(uuid);
+    }
+
 }

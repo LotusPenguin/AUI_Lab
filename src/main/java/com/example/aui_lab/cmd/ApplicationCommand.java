@@ -34,7 +34,6 @@ public class ApplicationCommand implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         String command;
-        main_loop:
         while (true) {
             command = scanner.next();
             switch (command) {

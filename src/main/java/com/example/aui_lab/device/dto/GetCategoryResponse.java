@@ -14,5 +14,5 @@ import java.util.UUID;
 public class GetCategoryResponse {
     private UUID id;
     private String name;
-    private Double packagingPrice;
+    private double packagingPrice;
 }

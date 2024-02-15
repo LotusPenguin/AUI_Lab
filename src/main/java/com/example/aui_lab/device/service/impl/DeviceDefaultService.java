@@ -17,7 +17,8 @@ public class DeviceDefaultService implements DeviceService {
     private final DeviceRepository repository;
     private final CategoryRepository categoryRepository;
 
-    @Autowired DeviceDefaultService(
+    @Autowired
+    DeviceDefaultService(
             DeviceRepository repository,
             CategoryRepository categoryRepository
     ) {

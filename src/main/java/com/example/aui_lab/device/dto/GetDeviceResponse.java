@@ -1,6 +1,5 @@
 package com.example.aui_lab.device.dto;
 
-import com.example.aui_lab.device.entity.Category;
 import lombok.*;
 
 import java.util.UUID;
@@ -24,6 +23,7 @@ public class GetDeviceResponse {
         private UUID id;
         private String name;
     }
+
     private UUID id;
     private String name;
     private String manufacturer;

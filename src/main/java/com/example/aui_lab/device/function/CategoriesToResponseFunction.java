@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.function.Function;
+
 @Component
 public class CategoriesToResponseFunction implements Function<List<Category>, GetCategoriesResponse> {
 

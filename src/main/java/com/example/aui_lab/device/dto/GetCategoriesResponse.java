@@ -2,8 +2,8 @@ package com.example.aui_lab.device.dto;
 
 import lombok.*;
 
-import java.util.UUID;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter

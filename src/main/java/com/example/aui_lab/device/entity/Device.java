@@ -19,7 +19,9 @@ import java.util.UUID;
 public class Device implements Serializable {
     @Id
     private UUID id;
+    @Column
     private String name;
+    @Column
     private String manufacturer;
     @ManyToOne
     @JoinColumn(name = "category")

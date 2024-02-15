@@ -1,9 +1,6 @@
 package com.example.aui_lab.device.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -24,9 +21,11 @@ import java.util.UUID;
 public class Category implements Serializable {
     @Id
     private UUID id;
+    @Column
     private String name;
+    @Column
     private double packagingPrice;
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Device> devices = new ArrayList<>();

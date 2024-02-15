@@ -5,6 +5,7 @@ import com.example.aui_lab.device.entity.Device;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
+
 @Component
 public class DeviceToResponseFunction implements Function<Device, GetDeviceResponse> {
     @Override

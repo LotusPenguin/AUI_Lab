@@ -9,9 +9,10 @@ import com.example.aui_lab.device.function.DevicesToResponseFunction;
 import com.example.aui_lab.device.function.RequestToDeviceFunction;
 import com.example.aui_lab.device.service.api.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Controller
@@ -34,6 +35,7 @@ public class DeviceDefaultController implements DeviceController {
         this.devicesToResponse = devicesToResponse;
         this.requestToDevice = requestToDevice;
     }
+
     @Override
     public GetDevicesResponse getDevices() {
         return devicesToResponse.apply(service.findAll());
@@ -43,12 +45,13 @@ public class DeviceDefaultController implements DeviceController {
     public GetDevicesResponse getCategoryDevices(UUID categoryId) {
         return service.findAllByCategory(categoryId)
                 .map(devicesToResponse)
-                .orElseThrow(NoSuchElementException::new);
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override
     public GetDeviceResponse getDevice(UUID id) {
-        return service.find(id).map(deviceToResponse).orElseThrow(NoSuchElementException::new);
+        return service.find(id).map(deviceToResponse)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override
@@ -58,6 +61,10 @@ public class DeviceDefaultController implements DeviceController {
 
     @Override
     public void deleteDevice(UUID id) {
-        service.delete(id);
+        service.find(id).ifPresentOrElse(
+                user -> service.delete(id),
+                () -> {
+                    throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+                });
     }
 }

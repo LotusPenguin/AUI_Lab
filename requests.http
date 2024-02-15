@@ -1,0 +1,76 @@
+### Get all devices
+
+GET http://localhost:8080/api/devices
+
+### Get a single existing device
+
+GET http://localhost:8080/api/devices/ff327e8a-77c0-4f9b-90a2-89e16895d1e1
+
+### Get single a single non-existing device
+
+GET http://localhost:8080/api/devices/ff327e8a-77c0-4f9b-90a2-89e16895d1e2
+
+### Get all devices of a given category
+
+GET http://localhost:8080/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d4/devices
+
+### Get all devices of a non-existing category
+
+GET http://localhost:8080/api/users/5d1da2ae-6a14-4b6d-8b4f-d117867118d5/devices
+
+### Create a new device
+
+PUT http://localhost:8080/api/devices/ff327e8a-77c0-4f9b-90a2-89e16895d1e2
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Huntsman Elite V2",
+  "manufacturer": "Razer",
+  "category": "5d1da2ae-6a14-4b6d-8b4f-d117867118d4"
+}
+
+### Delete a device (created with the request @line23)
+
+DELETE http://localhost:8080/api/devices/ff327e8a-77c0-4f9b-90a2-89e16895d1e2
+
+### Get all devices from the given category
+
+GET http://localhost:8080/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d4/devices
+
+### Get all categories
+
+GET http://localhost:8080/api/categories
+
+### Get a single category
+
+GET http://localhost:8080/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d4
+
+### Create a new category
+
+PUT http://localhost:8080/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "name": "Monitors",
+  "packagingPrice": "29.99"
+}
+
+### Get the newly created category
+
+GET http://localhost:8080/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5
+
+### Get devices from the newly created, empty category
+
+GET http://localhost:8080/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5/devices
+
+### Delete a category (created with the request @line51)
+
+DELETE http://localhost:8080/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5
+
+### Get a single non-existing category
+
+GET http://localhost:8080/api/categories/5d1da2ae-6a14-4b6d-8b4f-d117867118d5
+
+

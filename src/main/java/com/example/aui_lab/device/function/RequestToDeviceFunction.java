@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 import java.util.function.BiFunction;
+
 @Component
 public class RequestToDeviceFunction implements BiFunction<UUID, PutDeviceRequest, Device> {
 
